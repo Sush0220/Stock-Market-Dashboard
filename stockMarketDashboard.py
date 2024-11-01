@@ -135,6 +135,7 @@ if st.sidebar.button("Update"):
             with col1:
                 st.write(f"{ticker_list[0]} Performance Summary")
                 stock_info = yf.Ticker(ticker_list[0]).info
+                dividend_yield1 = stock_info.get('dividendYield', 'N/A')
                 col1_left, col1_right = st.columns(2)
                 with col1_left:
                     st.write(f"📈 **52 Week High:** {stock_info.get('fiftyTwoWeekHigh', 'N/A')} USD")
@@ -142,13 +143,14 @@ if st.sidebar.button("Update"):
                     st.write(f"💹 **PE Ratio:** {round(stock_info.get('trailingPE', 'N/A'),2)}")
                 with col1_right:
                     st.write(f"📉 **52 Week Low:** {stock_info.get('fiftyTwoWeekLow', 'N/A')} USD")
-                    st.write(f"💵 **Dividend Yield:** {round(stock_info.get('dividendYield', 'N/A') * 100,2)} %")
+                    st.write(f"💵 **Dividend Yield:** {round(dividend_yield1 * 1000 ,2)} %")
                     st.write(f"⚖️ **Beta:** {stock_info.get('beta', 'N/A')}")
                     st.write(f"📊 **Volume:** {stock_info.get('volume', 'N/A') / 1e7:.2f} M USD")
 
             with col2:
                 st.write(f"{ticker_list[1]} Performance Summary")
                 stock_info_2 = yf.Ticker(ticker_list[1]).info
+                dividend_yield2 = stock_info_2.get('dividendYield', 'N/A')
                 col2_left, col2_right = st.columns(2)
                 with col2_left:
                     st.write(f"📈 **52 Week High:** {stock_info_2.get('fiftyTwoWeekHigh', 'N/A')} USD")
@@ -156,7 +158,7 @@ if st.sidebar.button("Update"):
                     st.write(f"💹 **PE Ratio:** {round(stock_info.get('trailingPE', 'N/A'),2)}")
                 with col2_right:
                     st.write(f"📉 **52 Week Low:** {stock_info_2.get('fiftyTwoWeekLow', 'N/A')} USD")
-                    st.write(f"💵 **Dividend Yield:** {round(stock_info_2.get('dividendYield', 'N/A') * 100,2)} %")
+                    st.write(f"💵 **Dividend Yield:** {round(dividend_yield2 * 1000,2)} %")
                     st.write(f"⚖️ **Beta:** {stock_info_2.get('beta', 'N/A')}")
                     st.write(f"📊 **Volume:** {stock_info_2.get('volume', 'N/A') / 1e7:.2f} M USD")
 
