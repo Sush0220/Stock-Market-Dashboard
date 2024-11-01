@@ -45,7 +45,7 @@ if st.sidebar.button("Update"):
         todays_high = stock_info.get('dayHigh', 0)
         todays_low = stock_info.get('dayLow', 0)
         volume = stock_info.get('volume', 0)
-        traded_value = volume * current_price / 1e9
+        traded_value = volume * current_price / 1e7
         marketCap = stock_info.get('marketCap', 0) / 1e9
 
         # Display stock metrics
@@ -92,9 +92,9 @@ if st.sidebar.button("Update"):
                 st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A'):.2f}")
             with col2:
                 st.write(f"📉 **52 Week Low:** {stock_info.get('fiftyTwoWeekLow', 'N/A')} USD")
-                st.write(f"💵 **Dividend Yield:** {stock_info.get('dividendYield', 'N/A')} %")
+                st.write(f"💵 **Dividend Yield:** {stock_info.get('dividendYield', 'N/A') * 100:.2f} %")
                 st.write(f"⚖️ **Beta:** {stock_info.get('beta', 'N/A')}")
-                st.write(f"📈 **Traded Value:** {traded_value:.2f} B USD")
+                st.write(f"📈 **Traded Value:** {traded_value:.2f} M USD")
 
     elif len(ticker_list) == 2:
         # Combined chart view for two stocks
@@ -143,7 +143,7 @@ if st.sidebar.button("Update"):
                     st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A'):.2f}")
                 with col1_right:
                     st.write(f"📉 **52 Week Low:** {stock_info.get('fiftyTwoWeekLow', 'N/A')} USD")
-                    st.write(f"💵 **Dividend Yield:** {(stock_info.get('dividendYield', 'N/A'))} %")
+                    st.write(f"💵 **Dividend Yield:** {stock_info.get('dividendYield', 'N/A') * 100:.2f} %")
                     st.write(f"⚖️ **Beta:** {stock_info.get('beta', 'N/A')}")
                     st.write(f"📊 **Volume:** {stock_info.get('volume', 'N/A') / 1e7:.2f} M USD")
 
@@ -157,7 +157,7 @@ if st.sidebar.button("Update"):
                     st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A'):.2f}")
                 with col2_right:
                     st.write(f"📉 **52 Week Low:** {stock_info_2.get('fiftyTwoWeekLow', 'N/A')} USD")
-                    st.write(f"💵 **Dividend Yield:** {stock_info_2.get('dividendYield', 'N/A')} %")
+                    st.write(f"💵 **Dividend Yield:** {stock_info_2.get('dividendYield', 'N/A') * 100:.2f} %")
                     st.write(f"⚖️ **Beta:** {stock_info_2.get('beta', 'N/A')}")
                     st.write(f"📊 **Volume:** {stock_info_2.get('volume', 'N/A') / 1e7:.2f} M USD")
 
