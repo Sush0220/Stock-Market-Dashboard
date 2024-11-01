@@ -4,7 +4,8 @@ import plotly.graph_objs as go
 import time
 import pandas as pd
 
-st.set_page_config(page_title="Stock Market Dashboard", page_icon=":bar_chart:", layout="wide")
+
+st.set_page_config(page_title="StockWave | Surf the Trends", page_icon=":chart_with_upwards_trend:", layout="wide")
 # Function to get period and interval based on timeframe
 def get_period(timeframe):
     if timeframe == "1D":
@@ -19,9 +20,11 @@ def get_period(timeframe):
         return "max", "1d"  # Full available history with daily data
 
 # Streamlit App Title
-st.title("Stock Market Dashboard")
+st.title("📈 Dashboard")
+
 
 # Sidebar Layout
+st.sidebar.image("stockwave.png", width=150, use_column_width=True)
 st.sidebar.title("Fill the Details")
 tickers = st.sidebar.text_input("Enter Ticker Symbols (comma-separated)", placeholder="E.g. AAPL, GOOGL")
 chart_type = st.sidebar.selectbox("Select Chart Type", ["Candlestick", "Line Chart"])
