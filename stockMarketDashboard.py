@@ -89,7 +89,7 @@ if st.sidebar.button("Update"):
             with col1:
                 st.write(f"📈 **52 Week High:** {stock_info.get('fiftyTwoWeekHigh', 'N/A')} USD")
                 st.write(f"💰 **Market Cap:** {marketCap:.2f} B USD")
-                st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A') }")
+                st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A'):.2f}")
             with col2:
                 st.write(f"📉 **52 Week Low:** {stock_info.get('fiftyTwoWeekLow', 'N/A')} USD")
                 st.write(f"💵 **Dividend Yield:** {stock_info.get('dividendYield', 'N/A')} %")
@@ -140,7 +140,7 @@ if st.sidebar.button("Update"):
                 with col1_left:
                     st.write(f"📈 **52 Week High:** {stock_info.get('fiftyTwoWeekHigh', 'N/A')} USD")
                     st.write(f"💰 **Market Cap:** {stock_info.get('marketCap', 'N/A') / 1e9:.2f} B USD")
-                    st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A')}")
+                    st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A'):.2f}")
                 with col1_right:
                     st.write(f"📉 **52 Week Low:** {stock_info.get('fiftyTwoWeekLow', 'N/A')} USD")
                     st.write(f"💵 **Dividend Yield:** {(stock_info.get('dividendYield', 'N/A'))} %")
@@ -154,7 +154,7 @@ if st.sidebar.button("Update"):
                 with col2_left:
                     st.write(f"📈 **52 Week High:** {stock_info_2.get('fiftyTwoWeekHigh', 'N/A')} USD")
                     st.write(f"💰 **Market Cap:** {stock_info_2.get('marketCap', 'N/A') / 1e9:.2f} B USD")
-                    st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A')}")
+                    st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A'):.2f}")
                 with col2_right:
                     st.write(f"📉 **52 Week Low:** {stock_info_2.get('fiftyTwoWeekLow', 'N/A')} USD")
                     st.write(f"💵 **Dividend Yield:** {stock_info_2.get('dividendYield', 'N/A')} %")
