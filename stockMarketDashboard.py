@@ -93,7 +93,7 @@ if st.sidebar.button("Update"):
             with col2:
                 st.write(f"📉 **52 Week Low:** {stock_info.get('fiftyTwoWeekLow', 'N/A')} USD")
                 if stock_info.get('dividendYield') is not None:
-                    st.write(f"💵 **Dividend Yield:** {float(stock_info_2.get('dividendYield')):.2f} %")
+                    st.write(f"💵 **Dividend Yield:** {float(stock_info.get('dividendYield')):.2f} %")
                 else:
                     st.write(f"💵 **Dividend Yield:** N/A")
                 st.write(f"⚖️ **Beta:** {stock_info.get('beta', 'N/A')}")
