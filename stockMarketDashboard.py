@@ -85,6 +85,7 @@ if st.sidebar.button("Update"):
             st.dataframe(history_data, use_container_width=True)
 
         with price_summary:
+            dividendYield = stock_info.get('dividendYield', 'N/A')
             col1, col2 = st.columns(2)
             with col1:
                 st.write(f"📈 **52 Week High:** {stock_info.get('fiftyTwoWeekHigh', 'N/A')} USD")
@@ -92,7 +93,7 @@ if st.sidebar.button("Update"):
                 st.write(f"💹 **PE Ratio:** {round(stock_info.get('trailingPE', 'N/A'),2) }")
             with col2:
                 st.write(f"📉 **52 Week Low:** {stock_info.get('fiftyTwoWeekLow', 'N/A')} USD")
-                st.write(f"💵 **Dividend Yield:** {round(stock_info.get('dividendYield', 'N/A') * 100,2)} %")
+                st.write(f"💵 **Dividend Yield:** {round( dividendYield* 100,2)} %")
                 st.write(f"⚖️ **Beta:** {stock_info.get('beta', 'N/A')}")
                 st.write(f"📈 **Traded Value:** {traded_value:.2f} B USD")
 
