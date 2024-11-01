@@ -92,7 +92,10 @@ if st.sidebar.button("Update"):
                 st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A'):.2f}")
             with col2:
                 st.write(f"📉 **52 Week Low:** {stock_info.get('fiftyTwoWeekLow', 'N/A')} USD")
-                st.write(f"💵 **Dividend Yield:** {stock_info.get('dividendYield', 'N/A') * 100:.2f} %")
+                if stock_info.get('dividendYield') is not None:
+                    st.write(f"💵 **Dividend Yield:** {float(stock_info_2.get('dividendYield')):.2f} %")
+                else:
+                    st.write(f"💵 **Dividend Yield:** N/A")
                 st.write(f"⚖️ **Beta:** {stock_info.get('beta', 'N/A')}")
                 st.write(f"📈 **Traded Value:** {traded_value:.2f} M USD")
 
@@ -143,7 +146,10 @@ if st.sidebar.button("Update"):
                     st.write(f"💹 **PE Ratio:** {stock_info.get('trailingPE', 'N/A'):.2f}")
                 with col1_right:
                     st.write(f"📉 **52 Week Low:** {stock_info.get('fiftyTwoWeekLow', 'N/A')} USD")
-                    st.write(f"💵 **Dividend Yield:** {stock_info.get('dividendYield', 'N/A') * 100:.2f} %")
+                    if stock_info.get('dividendYield') is not None:
+                        st.write(f"💵 **Dividend Yield:** {float(stock_info_2.get('dividendYield')):.2f} %")
+                    else:
+                        st.write(f"💵 **Dividend Yield:** N/A")
                     st.write(f"⚖️ **Beta:** {stock_info.get('beta', 'N/A')}")
                     st.write(f"📊 **Volume:** {stock_info.get('volume', 'N/A') / 1e7:.2f} M USD")
 
