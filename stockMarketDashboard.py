@@ -43,13 +43,14 @@ if st.sidebar.button("Update"):
         period, interval = get_period(time_period)
         history_data = yfTicker.history(period=period, interval=interval)
         current_price = stock_info.get('currentPrice', 0)
-        price_change = stock_info.get('regularMarketChange', 0)
-        percent_change = stock_info.get('regularMarketChangePercent', 0)
         todays_high = stock_info.get('dayHigh', 0)
         todays_low = stock_info.get('dayLow', 0)
         volume = stock_info.get('volume', 0)
         traded_value = volume * current_price / 1e7
         marketCap = stock_info.get('marketCap', 0) / 1e9
+        previous_close = stock_info.get('previousClose', 0)
+        price_change = current_price - previous_close
+        percent_change = (price_change / previous_close) * 100
 
         # Display stock metrics
         with st.container():
